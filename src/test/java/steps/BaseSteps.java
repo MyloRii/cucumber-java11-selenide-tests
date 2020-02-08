@@ -1,4 +1,4 @@
-package tests;
+package steps;
 
 import com.codeborne.selenide.Configuration;
 import io.cucumber.java.Before;

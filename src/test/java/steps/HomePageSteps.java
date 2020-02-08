@@ -1,4 +1,4 @@
-package tests;
+package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,7 +10,7 @@ import pages.UploadFilePage;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
-import static tests.BaseSteps.atPage;
+import static steps.BaseSteps.atPage;
 
 public class HomePageSteps {
 
