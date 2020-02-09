@@ -1,50 +1,35 @@
 package steps;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.FileDownloadPage;
+import lombok.AllArgsConstructor;
 import pages.HomePage;
-import pages.UploadFilePage;
 
 import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.visible;
-import static steps.BaseSteps.atPage;
 
+@AllArgsConstructor
 public class HomePageSteps {
+
+    private HomePage homePage;
 
     @Given("User is on home page")
     public void userIsOnHOmePage() {
-        atPage(HomePage.class).getHomePageActive().shouldBe(exist);
+        homePage
+                .getHomePageActive()
+                .shouldBe(exist);
     }
 
     @When("Navigates to File -> Upload")
     public void userNavigatesToFileUpload() {
-        atPage(HomePage.class)
+        homePage
                 .openFileDD()
                 .openUploadFile();
     }
 
     @When("Navigates to File -> Download")
     public void userNavigatesToFileDownload() {
-        atPage(HomePage.class)
+        homePage
                 .openFileDD()
                 .openFileDownload();
-    }
-
-    @And("User uploads file")
-    public void userUploadsFile() {
-        atPage(UploadFilePage.class).uploadFile();
-    }
-
-    @And("User downloads file")
-    public void userDownloadsFile() {
-        atPage(FileDownloadPage.class).downloadFile();
-    }
-
-    @Then("File appears as uploaded")
-    public void fileIsUploaded() {
-        atPage(UploadFilePage.class).getUploadedFileName().shouldBe(visible);
     }
 }

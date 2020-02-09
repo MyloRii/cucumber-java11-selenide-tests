@@ -1,3 +1,4 @@
+@SA
 Feature: HomePage
 
   Scenario: File Upload
